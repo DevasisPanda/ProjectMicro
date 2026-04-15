@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miravi Mart</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script defer src="/app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="background-orb background-orb-left"></div>
+      <div class="background-orb background-orb-right"></div>
+
+      <header class="topbar">
+        <a class="brand" href="/">Miravi Mart</a>
+        <button class="primary-button" id="openCreateButton" type="button">
+          Add Product
+        </button>
+      </header>
+
+      <main class="content">
+        <section class="hero-card">
+          <p class="eyebrow">Simple E-commerce Mini Application</p>
+          <h1>Discover, add, edit, and manage products in one clean workspace.</h1>
+          <p class="hero-copy">
+            A lightweight product catalog built with Express and vanilla JavaScript
+            for the Miravi full-stack assessment.
+          </p>
+          <div class="hero-notes">
+            <span class="hero-chip">Instant CRUD updates</span>
+            <span class="hero-chip">Responsive layout</span>
+            <span class="hero-chip">Vercel-ready</span>
+          </div>
+        </section>
+
+        <section class="catalog-card">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Product Listing</p>
+              <h2>Available Products</h2>
+            </div>
+            <p class="section-meta" id="catalogSummary">Loading products...</p>
+          </div>
+
+          <div class="feedback hidden" id="feedback" role="status" aria-live="polite"></div>
+
+          <div class="state-card" id="loadingState">Loading products...</div>
+          <div class="state-card hidden" id="emptyState">
+            <p>No products available. Add your first product to get started.</p>
+            <button class="primary-button" id="openEmptyStateButton" type="button">
+              Add Your First Product
+            </button>
+          </div>
+
+          <div class="product-grid hidden" id="productGrid"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Miravi Mart mini store. Built with Express, HTML, CSS, and JavaScript.</p>
+      </footer>
+    </div>
+
+    <div class="modal-shell hidden" id="productModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <section
+        class="modal-card"
+        aria-labelledby="modalTitle"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow">Manage Product</p>
+            <h2 id="modalTitle">Add Product</h2>
+          </div>
+          <button class="icon-button" id="closeModalButton" type="button" aria-label="Close">
+            x
+          </button>
+        </div>
+
+        <form class="product-form" id="productForm" novalidate>
+          <label>
+            <span>Name</span>
+            <input
+              id="nameInput"
+              name="name"
+              type="text"
+              placeholder="Nordic Desk Lamp"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Price</span>
+            <input
+              id="priceInput"
+              name="price"
+              type="number"
+              min="0.01"
+              step="0.01"
+              placeholder="49.99"
+              inputmode="decimal"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Image URL</span>
+            <input
+              id="imageUrlInput"
+              name="imageUrl"
+              type="url"
+              placeholder="https://example.com/image.jpg"
+              required
+            />
+          </label>
+
+          <section class="preview-card" aria-label="Product preview">
+            <img id="previewImage" alt="Product preview" src="" />
+            <div class="preview-copy">
+              <p class="preview-label">Live Preview</p>
+              <strong id="previewName">Product name</strong>
+              <span id="previewPrice">$0.00</span>
+            </div>
+          </section>
+
+          <p class="form-error hidden" id="formError" role="alert"></p>
+
+          <div class="modal-actions">
+            <button class="ghost-button" id="cancelButton" type="button">Cancel</button>
+            <button class="primary-button" id="submitButton" type="submit">Save Product</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>

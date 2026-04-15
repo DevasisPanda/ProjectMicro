@@ -1,0 +1,14 @@
+{
+  "name": "miravi-mart",
+  "version": "1.0.0",
+  "description": "Simple e-commerce mini application built with Express and vanilla JavaScript.",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node --no-warnings src/server.js",
+    "dev": "node --watch --no-warnings src/server.js",
+    "test": "node --no-warnings tests/api.test.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
