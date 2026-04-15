@@ -2,8 +2,24 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/products",
       "destination": "/api/index"
+    },
+    {
+      "source": "/products/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/",
+      "destination": "/public/index.html"
+    },
+    {
+      "source": "/app.js",
+      "destination": "/public/app.js"
+    },
+    {
+      "source": "/styles.css",
+      "destination": "/public/styles.css"
     }
   ]
 }
